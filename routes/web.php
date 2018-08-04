@@ -52,3 +52,6 @@ Route::resource('categories', 'CategoriesController', ['only' => ['show']]);
 //Route::get('/users/{user}/edit', 'UsersController@edit')->name('users.edit');
 //Route::patch('/users/{user}', 'UsersController@update')->name('users.update');
 //Route::delete('/users/{user}', 'UsersController@destroy')->name('users.destroy');
+
+
+Route::post('upload_image', 'TopicsController@uploadImage')->name('topics.upload_image');
