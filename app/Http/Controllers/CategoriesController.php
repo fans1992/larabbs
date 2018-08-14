@@ -23,6 +23,6 @@ class CategoriesController extends Controller
         //资源链接
         $links = $link->getAllCached();
         // 传参变量话题和分类到模板中
-        return view('topics.index', compact('category', 'topics', 'active_users'));
+        return view('topics.index', compact('category', 'topics', 'active_users', 'links'));
     }
 }
