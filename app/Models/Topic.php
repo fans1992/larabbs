@@ -56,10 +56,4 @@ class Topic extends Model
     }
 
 
-
-
-
-
-
-
 }

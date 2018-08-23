@@ -14,8 +14,9 @@ $api->version('v1', [
         'limit' => config('api.rate_limits.sign.limit'),
         'expires' => config('api.rate_limits.sign.expires'),
     ], function($api) {
-        //游客可以访问的接口
-
+        /**
+         *  游客可以访问的接口
+         */
         // 短信验证码
         $api->post('verificationCodes', 'VerificationCodesController@store')
             ->name('api.verificationCodes.store');
@@ -41,8 +42,16 @@ $api->version('v1', [
         //分类列表
         $api->get('categories', 'CategoriesController@index')
             ->name('api.categories.index');
+        //话题列表
+        $api->get('topics', 'TopicsController@index')
+            ->name('api.topics.index');
+        //某用户话题列表
+        $api->get('users/{user}/topics', 'TopicsController@userIndex')
+            ->name('api.users.topics.index');
 
-        //需要token验证的接口
+        /**
+         * 需要token验证的接口
+         */
         $api->group(['middleware' => 'api.auth'], function($api) {
             //获取当前登录用户信息
             $api->get('user', 'UsersController@me')
